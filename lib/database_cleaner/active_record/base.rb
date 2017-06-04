@@ -76,9 +76,8 @@ module DatabaseCleaner
       end
 
       def establish_connection
-        ::ActiveRecord::Base.establish_connection(connection_hash)
+        ::ActiveRecord::Base.tap { |b| b.establish_connection(connection_hash) }
       end
-
     end
   end
 end
